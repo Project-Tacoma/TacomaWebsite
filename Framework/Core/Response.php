@@ -4,7 +4,7 @@
 * Response wrapper class
 *
 * @author Flavio Kleiber <flaverkleiber@yahoo.de>
-* @copyright 2016-2017 Flavio Kleiber
+* @copyright 2016-2018 Flavio Kleiber
 */
 
 namespace Solaria\Framework\Core;

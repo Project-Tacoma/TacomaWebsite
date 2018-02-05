@@ -5,7 +5,7 @@
 * soo look what you are chaning here
 *
 * @author Flavio Kleiber <flaverkleiber@yahoo.de>
-* @copyright 2016-2017 Flavio Kleiber
+* @copyright 2016-2018 Flavio Kleiber
 */
 namespace Solaria\Framework\Core;
 
@@ -99,7 +99,7 @@ class Application {
         self::$di->set('Request', new Request());
         self::$di->set('Response', new Response());
         $urlConfig = parse_ini_file(APP_PATH."/config/url.ini", true);
-        //$this->setUpRbac();
+        $this->setUpRbac();
         $url = new Url($urlConfig);
         $url->resolve($_GET['_url']);
     }

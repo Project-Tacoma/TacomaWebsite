@@ -3,7 +3,7 @@
 * Wrapper for a request
 *
 * @author Flavio Kleiber <flaverkleiber@yahoo.de>
-* @copyright 2016-2017 Flavio Kleiber
+* @copyright 2016-2018 Flavio Kleiber
 */
 
 namespace Solaria\Framework\Core;
@@ -60,5 +60,5 @@ class Request {
     public function getPost($value='') {
         return ($value == '') ?  $_POST :  $_POST[$value];
     }
-    
+
 }

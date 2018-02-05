@@ -60,6 +60,7 @@ class UserController extends BaseController {
                 $user->setBanned('n');
                 $user->setSteamId('');
                 $user->setSteamAvatar('');
+                $user->setIsIngame(0);
                 $user->save($user);
                 $this->session->set('user', $user);
                 $this->di->get('SessionFlash')->success('Your user was created! You can now use it! Have fun!');

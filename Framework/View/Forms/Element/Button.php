@@ -3,7 +3,7 @@
  * Button
  *
  * @author Flavio Kleiber
- * @copyright (c) 2016-2017, Flavio Kleiber
+ * @copyright (c) 2016-2018, Flavio Kleiber
  */
 
 namespace Solaria\Framework\View\Forms\Element;

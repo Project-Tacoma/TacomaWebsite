@@ -3,7 +3,7 @@
 * Rbac wrapper for zend module
 *
 * @author Flavio Kleiber <flaverkleiber@yahoo.de>
-* @copyright 2016-2017 Flavio Kleiber
+* @copyright 2016-2018 Flavio Kleiber
 */
 namespace Solaria\Framework\Application\Rbac;
 
@@ -16,19 +16,23 @@ class Rbac extends DiClass{
     private $rbac;
 
     public function __construct() {
-        $this->rbac = new Zend_Rbac();
+      $this->rbac = new Zend_Rbac();
     }
 
-    public function addRole($name) {
+    public function addRole($name, $extends = array()) {
+      if(count($extends) > 0) {
+        $this->rbac->addRole(new Role($name, $extends));
+      } else {
         $this->rbac->addRole(new Role($name));
+      }
     }
 
     public function isGranted($role, $permission) {
-        return $this->rbac->isGranted($role, $permission);
+      return $this->rbac->isGranted($role, $permission);
     }
 
     public function addPermissionToRole($role, $permission) {
-        $this->rbac->getRole($role)->addPermission($permission);
+      $this->rbac->getRole($role)->addPermission($permission);
     }
 
 }

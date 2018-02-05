@@ -27,7 +27,7 @@ class Dispatcher extends DiClass {
         $isGranted = false;//just for debug
 
         //Check guest's first
-        /*
+        /**/
         if($this->di->get('Rbac')->isGranted('Guest', $module.'.'.$this->currentController.'.*.*') ||
           $this->di->get('Rbac')->isGranted('Guest', $module.'.'.$this->currentController.'.'.$this->currentAction) ||
           $this->di->get('Rbac')->isGranted('Guest', $module.'.'.$this->currentController.'.'.$this->currentAction.'.*'))
@@ -61,9 +61,7 @@ class Dispatcher extends DiClass {
           $this->di->get('SessionFlash')->error('Sry but you dont have the permission');
           $this->di->get('Response')->redirect('');
 
-        }*/
-        $this->run($controller, $action, $arguments, $module);
-
+        }
 
     }
 

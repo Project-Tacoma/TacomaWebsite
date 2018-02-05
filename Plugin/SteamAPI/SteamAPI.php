@@ -5,7 +5,7 @@
 * It will create a user and can be used for login!
 *
 * @author Flavio Kleiber <flaverkleiber@yahoo.de>
-* @copyright 2016-2017 Flavio Kleiber
+* @copyright 2016-2018 Flavio Kleiber
 */
 
 namespace Solaria\Plugins\SteamAPI;
@@ -60,6 +60,7 @@ class SteamAPI extends BasePlugin {
                         $user->setRegisterDate(time());
                         $user->setLastActivityTime(0);
                         $user->setBanned('n');
+                        $user->setIsIngame(0);
                         $user->save($user);
                     }
                     $session->set('user', $user);
