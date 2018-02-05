@@ -2,6 +2,7 @@
 namespace Solaria\Application\Acp\Controllers;
 
 use Solaria\Framework\Application\Mvc\BaseController;
+use Solaria\Framework\Application\Rbac\PermissionHelper;
 use Solaria\Application\Models\Topic;
 use Solaria\Application\Models\Permission;
 use Solaria\Application\Models\RolePermission;
@@ -22,28 +23,6 @@ class ForumController extends BaseController {
           $topic = new Topic();
           $topic->setName($name);
           $topic->setEnabled(1);
-          $newTopic = $topic->save($topic);
-          
-          //Create permission
-          $permission = new Permission();
-          $permission->setName('Forum.topic.index.'.$newTopic->getId());
-          $newPermission = $permission->save($permission);
-
-          //Create the role permission
-          $checkedGroups = array();
-          foreach(Role::findAll() as $role) {
-            if(array_key_exists($role->getName(), $this->request->getPost())) {
-              $checkedGroups[$role->getName()] = Role::find($this->request->getPost($role->getName()));
-            }
-          }
-
-          foreach($checkedGroups as $key => $value) {
-            $rolePermission = new RolePermission();
-            $rolePermission->setRole($value);
-            $rolePermission->setPermission($newPermission);
-            $rolePermission->save($rolePermission);
-          }
-
           $this->di->get('SessionFlash')->success('Topic <b>'.$name.'</b> successfully created :)');
           $this->response->redirect('forum/topic/'.$newTopic->getId());
         } else {
@@ -54,7 +33,7 @@ class ForumController extends BaseController {
           $this->response->redirect('forum');
       }
     }
-    
+
     /**
      * @AS_TODO: REFACTOR, BUT IM TOO TIRED NOW
      */
@@ -84,39 +63,6 @@ class ForumController extends BaseController {
           }
         }
 
-        $checkedGroups = array();
-        //Check the permission and delete or create them
-        foreach(Role::findAll() as $role) {
-          if(array_key_exists($role->getName(), $this->request->getPost())) {
-            $checkedGroups[$role->getName()] = Role::find($this->request->getPost($role->getName()));
-          }
-        }
-
-        $permission = Permission::findBy(array('name' => 'Forum.topic.index.'.$topic->getId()))[0];
-        $usedRoles = array();
-        $rp = $permission->getRolePermission();
-        foreach($rp as $rp2) {
-          $usedRoles[$rp2->getRole()->getName()] = $rp2->getRole();
-        }
-
-        //Check wich we have to delete
-        foreach($usedRoles as $key => $value) {
-          if(!array_key_exists($key, $checkedGroups)) {
-            $rolePermission = RolePermission::findBy(array('role_id' => $value->getId(), 'permission_id' => $permission->getId()))[0];
-            $rolePermission->delete($rolePermission);
-
-          }
-        }
-
-        //Check wich do we have to add
-        foreach($checkedGroups as $key => $value) {
-          if(!array_key_exists($key, $usedRoles)) {
-            $rolePermission = new RolePermission();
-            $rolePermission->setRole($value);
-            $rolePermission->setPermission($permission);
-            $rolePermission->save($rolePermission);
-          }
-        }
 
         $topic->update($topic);
         $this->di->get('SessionFlash')->success('Topic updated');

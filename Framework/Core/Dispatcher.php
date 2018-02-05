@@ -22,63 +22,25 @@ class Dispatcher extends DiClass {
     }
 
     public function dispatch($controller, $action, $arguments = array(), $module = 'Page') {
-        $this->currentController = str_replace('controller', '', strtolower($controller));
-        $this->currentAction = $this->from_camel_case(str_replace('Action', '', $action));
-        $isGranted = false;//just for debug
-
-        //Check guest's first
-        /**/
-        if($this->di->get('Rbac')->isGranted('Guest', $module.'.'.$this->currentController.'.*.*') ||
-          $this->di->get('Rbac')->isGranted('Guest', $module.'.'.$this->currentController.'.'.$this->currentAction) ||
-          $this->di->get('Rbac')->isGranted('Guest', $module.'.'.$this->currentController.'.'.$this->currentAction.'.*'))
-        {
-            $isGranted = true;
-            $this->run($controller, $action, $arguments, $module);
-
-        } else if($this->di->get('Session')->exist('user')) { //Check user
-          $user = User::find($this->di->get('Session')->get('user')->getId());
-
-          foreach ($user->getUserRoles() as $roles) {
-            $role = $roles->getRole();
-            if($this->di->get('Rbac')->isGranted($role->getName(), $module.'.*.*.*') ||
-              $this->di->get('Rbac')->isGranted($role->getName(), $module.'.'.$this->currentController.'.*') ||
-              $this->di->get('Rbac')->isGranted($role->getName(), $module.'.'.$this->currentController.'.'.$this->currentAction) ||
-              $this->di->get('Rbac')->isGranted($role->getName(), $module.'.'.$this->currentController.'.'.$this->currentAction.'.'.$arguments[0]))
-            {
-              $isGranted = true;
-              break;
-            }
-          }
-
-          if($isGranted) {
-            $this->run($controller, $action, $arguments, $module);
-          }
-        }
-
-        if(!$isGranted) {
-          //throw new \Exception("NO PERMISSION!");
-          //For the moment back to the home site
-          $this->di->get('SessionFlash')->error('Sry but you dont have the permission');
-          $this->di->get('Response')->redirect('');
-
-        }
-
+      $this->currentController = str_replace('controller', '', strtolower($controller));
+      $this->currentAction = $this->from_camel_case(str_replace('Action', '', $action));
+      $this->run($controller, $action, $arguments, $module);
     }
 
     private function run($controller, $action, $arguments, $module) {
-        //add namespace
-        $controller = 'Solaria\Application\\'.$module.'\Controllers\\'.$controller;
-        if(class_exists($controller)) {
-            if(method_exists($controller, $action)) {
-                $this->di->set('Dispatcher', $this);
-                $this->currentModule = $module;
-                call_user_func_array(array(new $controller, $action), $arguments);
-                return;
-            } else {
-                throw new \Exception("Method ".$action. " does not exist!");
-            }
-        }
-        throw new \Exception("Class ".$controller. " does not exist!");
+      //add namespace
+      $controller = 'Solaria\Application\\'.$module.'\Controllers\\'.$controller;
+      if(class_exists($controller)) {
+          if(method_exists($controller, $action)) {
+              $this->di->set('Dispatcher', $this);
+              $this->currentModule = $module;
+              call_user_func_array(array(new $controller, $action), $arguments);
+              return;
+          } else {
+              throw new \Exception("Method ".$action. " does not exist!");
+          }
+      }
+      throw new \Exception("Class ".$controller. " does not exist!");
     }
 
     public function forward($controller, $action, $arguments = array(), $module = 'page') {

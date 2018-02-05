@@ -99,31 +99,8 @@ class Application {
         self::$di->set('Request', new Request());
         self::$di->set('Response', new Response());
         $urlConfig = parse_ini_file(APP_PATH."/config/url.ini", true);
-        $this->setUpRbac();
         $url = new Url($urlConfig);
         $url->resolve($_GET['_url']);
-    }
-
-    public function setUpRbac() {
-        $rbcConf = self::$di->get('mainConf')['rbac'];
-        $result = $rbcConf['roleTable']::findAll();
-        $rbac = new Rbac();
-
-        if(!empty($result) && $result != false) {
-	         foreach ($result as $role) {
-    		      if(count($role->getExtendRole()) > 0) {
-                    //\Doctrine\Common\Util\Debug::dump($role->getExtendRole());
-    		          $rbac->addRole($role->getName(), [$role->getExtendRole()[0]->getName()]);
-    		      } else {
-    		          $rbac->addRole($role->getName());
-    		      }
-              foreach ($role->getRolePermission() as $rp) {
-                  $rbac->addPermissionToRole($role->getName(), $rp->getPermission()->getName());
-              }
-          }
-        }
-
-        self::$di->set('Rbac', $rbac);
     }
 
     /**
