@@ -203,9 +203,13 @@ class User extends BaseModel {
     public function setLastActivityTime($lastActivityTime) {
         $this->lastActivityTime = $lastActivityTime;
     }
-
+    
     public function getIsIngame() {
         return $this->is_ingame;
+    }
+
+    public function setIsIngame($isIngame) {
+      $this->is_ingame = $isIngame;
     }
 
 

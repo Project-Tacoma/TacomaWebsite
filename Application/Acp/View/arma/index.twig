@@ -1,0 +1,45 @@
+{% extends "@Acp/base.twig" %}
+{% block content %}
+<h3>Servereinstellungen</h3>
+<br />
+<p>Hier können die Servereinstellungen des Gameservers angepasst werden. Es kann bis zu 5min dauern bis die Einstellungen übernommen werden</p>
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#currentPreferences">Arsenal</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#alternative">Ticketsystem</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#link">Link</a>
+    </li>
+</ul>
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="currentPreferences">
+        <ul class="list-group media-list media-list-stream">
+          <form>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Arsenal Preset</label>
+              <select class="form-control">
+                <option value="volvo">Blufor Arsenal</option>
+              </select>
+            </div>
+            <div class="form-group">
+              W.I.P
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </ul>
+    </div>
+    <div role="tabpanel" class="tab-pane fade in" id="alternative">
+        <ul class="list-group media-list media-list-stream">
+            <p>W.I.P</p>
+        </ul>
+    </div>
+     <div role="tabpanel" class="tab-pane fade in" id="link">
+        <ul class="list-group media-list media-list-stream">
+            <p>W.I.P</p>
+        </ul>
+    </div>
+</div>
+{% endblock %}
