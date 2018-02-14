@@ -1,0 +1,354 @@
+/**
+* FORUM SCSS
+* AUTHOR: flaver
+*/
+ul#main_post_list {
+  border-bottom: 1px solid #f2f2f2f2; }
+
+.list-post {
+  border-bottom: 1px solid #f2f2f2f2;
+  list-style: none; }
+  .list-post li {
+    /*:after {
+      display: block;
+      content: "";
+      clear: both;
+    }*/ }
+  .list-post li.thread-item {
+    padding: 14px 17px;
+    margin-bottom: 1px;
+    min-height: 75px;
+    position: relative;
+    clear: both; }
+    .list-post li.thread-item .thumb {
+      height: 64px;
+      width: 64px;
+      border-radius: 50%;
+      overflow: hidden;
+      float: left;
+      padding-bottom: 30px; }
+      .list-post li.thread-item .thumb .avatar {
+        position: relative;
+        border: 0px; }
+      .list-post li.thread-item .thumb img {
+        max-width: 64px; }
+    .list-post li.thread-item h2.title {
+      margin: 0;
+      padding: 0;
+      font-size: 30px; }
+      .list-post li.thread-item h2.title a {
+        font-size: 18px;
+        color: #3b3b3b;
+        font-weight: 600;
+        margin-top: 7px;
+        display: block;
+        width: 85%;
+        line-height: 1.2em; }
+
+.post-information {
+  position: relative;
+  left: 13px; }
+  .post-information span {
+    font-size: 0.9em; }
+  .post-information .times-created {
+    font-size: 12px;
+    color: #3b3b3b;
+    word-spacing: 2px;
+    font-weight: 300; }
+  .post-information .type-category {
+    position: relative;
+    margin-left: 20px;
+    font-size: 0.9em;
+    color: #3b3b3b; }
+    .post-information .type-category a {
+      color: #3b3b3b;
+      font-size: 0.89em;
+      margin-right: -3px; }
+    .post-information .type-category .flags {
+      margin-top: 2px;
+      display: block;
+      top: 2px;
+      left: -17px; }
+  .post-information .author {
+    font-size: 0.89em;
+    color: #3b3b3b;
+    word-spacing: 2px;
+    margin-left: 10px; }
+    .post-information .author .last-reply a {
+      color: #349 !important; }
+    .post-information .author .semibold a {
+      color: #727 !important;
+      font-weight: 600;
+      font-size: 600;
+      font-family: "Open Sans", Arial, Helvetica, sans-serif; }
+  .post-information .comment {
+    margin-left: 5px; }
+    .post-information .comment .icon {
+      margin-right: 5px; }
+  .post-information .like {
+    margin-left: 5px; }
+
+.flags {
+  width: 12px;
+  height: 12px;
+  display: block;
+  top: 13px;
+  right: 15px;
+  position: absolute;
+  border-radius: 1px; }
+
+.color-30 {
+  background: red; }
+
+.color-31 {
+  background: green; }
+
+.widget {
+  margin: 30px 0px;
+  clear: both; }
+  .widget :first-child h2 {
+    margin-top: 10px; }
+  .widget h2 {
+    font-size: 0.8em;
+    color: #636267;
+    text-transform: uppercase;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 13px;
+    margin-bottom: 9px; }
+  .widget li {
+    list-style: none; }
+  .widget .category-items {
+    margin-top: -3px; }
+    .widget .category-items li {
+      color: #95a5a6;
+      font-size: 1.025em;
+      position: relative;
+      display: block; }
+      .widget .category-items li a.cat-item {
+        display: block;
+        padding: 5px 24px 5px 30px;
+        position: relative; }
+        .widget .category-items li a.cat-item .flags {
+          top: 9px;
+          right: 0; }
+
+.widget-categories {
+  clear: both; }
+
+.statistics {
+  background: lightgray;
+  border-radius: 5px;
+  margin-top: 10px; }
+  .statistics ul li {
+    padding: 10px 20px;
+    border-bottom: 1px solid #e6e6e6; }
+  .statistics .name-stt {
+    color: #7b7b7b;
+    text-transform: uppercase;
+    font-size: 14px; }
+  .statistics .number-stt {
+    color: #7b7b7b;
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: 600; }
+
+.text-search {
+  margin-top: 10px;
+  position: relative;
+  display: block;
+  left: 57px; }
+
+#showTopic {
+  margin-top: 20px;
+  max-width: 777px;
+  margin-bottom: 20px; }
+
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+body {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  color: #5a5a5a;
+  background-color: #ecf0f1; }
+
+.connect-to-steam {
+  margin-top: 5px; }
+
+a {
+  text-decoration: none;
+  font-weight: normal;
+  outline: none !important; }
+
+.semibold {
+  font-weight: 600; }
+
+/* BREADCRUM
+-------------------------------------------------- */
+.sol-breadcrum {
+  background-color: #292b2c !important; }
+
+/* NAVBAR
+-------------------------------------------------- */
+.navbar-text > a {
+  color: white; }
+
+.navbar-text > a:hover {
+  text-decoration: none; }
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+/* Carousel base class */
+.carousel {
+  margin-bottom: 4rem; }
+
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  z-index: 10;
+  bottom: 3rem; }
+
+/* Declare heights because of positioning of img element */
+.carousel-item {
+  height: 32rem;
+  background-color: #777; }
+
+.carousel-item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 32rem; }
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  margin-bottom: 1.5rem;
+  text-align: center; }
+
+.marketing h2 {
+  font-weight: normal; }
+
+.marketing .col-lg-4 p {
+  margin-right: .75rem;
+  margin-left: .75rem; }
+
+/* Featurettes
+------------------------- */
+.featurette-divider {
+  margin: 5rem 0;
+  /* Space out the Bootstrap <hr> more */ }
+
+/* Thin out the marketing headings */
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -.05rem; }
+
+.up {
+  color: #1abc9c;
+  font-size: 12px; }
+  .up li {
+    font-size: 20px;
+    padding-right: 10px; }
+
+.down {
+  color: #db7a7a;
+  font-size: 12px;
+  margin-left: 20px; }
+  .down li {
+    font-size: 20px;
+    padding-right: 10px; }
+
+/* USERPROFILE / Operation Log
+-------------------------------------------------- */
+.user-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center; }
+  .user-card .title {
+    color: gray;
+    font-size: 18px; }
+  .user-card button {
+    border: none;
+    outline: 0;
+    display: inline;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px; }
+    .user-card button :hover {
+      opacity: 0.7; }
+  .user-card a {
+    text-decoration: none;
+    font-size: 22px;
+    color: black; }
+    .user-card a :hover {
+      opacity: 0.7; }
+
+.ribbons {
+  margin-left: -36px;
+  margin-top: 12px; }
+  .ribbons li {
+    list-style: none; }
+    .ribbons li img {
+      border-radius: 0; }
+
+.opl-content {
+  color: white; }
+  .opl-content .opl-row-top {
+    background-color: gray;
+    margin-top: 5px; }
+  .opl-content .opl-row-bottom {
+    background-color: gray;
+    margin-top: 10px; }
+  .opl-content .opl-nav {
+    background-color: gray; }
+  .opl-content .opl-profile {
+    padding-top: 10px;
+    padding-bottom: 10px; }
+    .opl-content .opl-profile .opl-username {
+      float: right;
+      margin-right: 16px;
+      margin-top: 35px;
+      font-size: 14px;
+      font-weight: bold;
+      color: white; }
+    .opl-content .opl-profile .img .opl-online {
+      border: 4px solid green;
+      border-radius: 17px; }
+    .opl-content .opl-profile .img img {
+      width: 127px; }
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%; }
+
+.f-floatright {
+  margin-left: 78px;
+  word-wrap: break-word; }
+  .f-floatright .title a {
+    max-width: 500px;
+    display: block;
+    width: auto;
+    padding-right: 0px; }
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+@media (min-width: 40em) {
+  /* Bump up size of carousel content */
+  .carousel-caption p {
+    margin-bottom: 1.25rem;
+    font-size: 1.25rem;
+    line-height: 1.4; }
+  .featurette-heading {
+    font-size: 50px; } }
+
+@media (min-width: 62em) {
+  .featurette-heading {
+    margin-top: 7rem; } }

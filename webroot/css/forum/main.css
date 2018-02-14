@@ -1,0 +1,164 @@
+/**
+* FORUM SCSS
+* AUTHOR: flaver
+*/
+ul#main_post_list {
+  border-bottom: 1px solid #f2f2f2f2; }
+
+.list-post {
+  border-bottom: 1px solid #f2f2f2f2;
+  list-style: none; }
+  .list-post li {
+    /*:after {
+      display: block;
+      content: "";
+      clear: both;
+    }*/ }
+  .list-post li.thread-item {
+    padding: 14px 17px;
+    margin-bottom: 1px;
+    min-height: 75px;
+    position: relative;
+    clear: both; }
+    .list-post li.thread-item .thumb {
+      height: 64px;
+      width: 64px;
+      border-radius: 50%;
+      overflow: hidden;
+      float: left;
+      padding-bottom: 30px; }
+      .list-post li.thread-item .thumb .avatar {
+        position: relative;
+        border: 0px; }
+      .list-post li.thread-item .thumb img {
+        max-width: 64px; }
+    .list-post li.thread-item h2.title {
+      margin: 0;
+      padding: 0;
+      font-size: 30px; }
+      .list-post li.thread-item h2.title a {
+        font-size: 18px;
+        color: #3b3b3b;
+        font-weight: 600;
+        margin-top: 7px;
+        display: block;
+        width: 85%;
+        line-height: 1.2em; }
+
+.post-information {
+  position: relative;
+  left: 13px; }
+  .post-information span {
+    font-size: 0.9em; }
+  .post-information .times-created {
+    font-size: 12px;
+    color: #3b3b3b;
+    word-spacing: 2px;
+    font-weight: 300; }
+  .post-information .type-category {
+    position: relative;
+    margin-left: 20px;
+    font-size: 0.9em;
+    color: #3b3b3b; }
+    .post-information .type-category a {
+      color: #3b3b3b;
+      font-size: 0.89em;
+      margin-right: -3px; }
+    .post-information .type-category .flags {
+      margin-top: 2px;
+      display: block;
+      top: 2px;
+      left: -17px; }
+  .post-information .author {
+    font-size: 0.89em;
+    color: #3b3b3b;
+    word-spacing: 2px;
+    margin-left: 10px; }
+    .post-information .author .last-reply a {
+      color: #349 !important; }
+    .post-information .author .semibold a {
+      color: #727 !important;
+      font-weight: 600;
+      font-size: 600;
+      font-family: "Open Sans", Arial, Helvetica, sans-serif; }
+  .post-information .comment {
+    margin-left: 5px; }
+    .post-information .comment .icon {
+      margin-right: 5px; }
+  .post-information .like {
+    margin-left: 5px; }
+
+.flags {
+  width: 12px;
+  height: 12px;
+  display: block;
+  top: 13px;
+  right: 15px;
+  position: absolute;
+  border-radius: 1px; }
+
+.color-30 {
+  background: red; }
+
+.color-31 {
+  background: green; }
+
+.widget {
+  margin: 30px 0px;
+  clear: both; }
+  .widget :first-child h2 {
+    margin-top: 10px; }
+  .widget h2 {
+    font-size: 0.8em;
+    color: #636267;
+    text-transform: uppercase;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 13px;
+    margin-bottom: 9px; }
+  .widget li {
+    list-style: none; }
+  .widget .category-items {
+    margin-top: -3px; }
+    .widget .category-items li {
+      color: #95a5a6;
+      font-size: 1.025em;
+      position: relative;
+      display: block; }
+      .widget .category-items li a.cat-item {
+        display: block;
+        padding: 5px 24px 5px 30px;
+        position: relative; }
+        .widget .category-items li a.cat-item .flags {
+          top: 9px;
+          right: 0; }
+
+.widget-categories {
+  clear: both; }
+
+.statistics {
+  background: lightgray;
+  border-radius: 5px;
+  margin-top: 10px; }
+  .statistics ul li {
+    padding: 10px 20px;
+    border-bottom: 1px solid #e6e6e6; }
+  .statistics .name-stt {
+    color: #7b7b7b;
+    text-transform: uppercase;
+    font-size: 14px; }
+  .statistics .number-stt {
+    color: #7b7b7b;
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: 600; }
+
+.text-search {
+  margin-top: 10px;
+  position: relative;
+  display: block;
+  left: 57px; }
+
+#showTopic {
+  margin-top: 20px;
+  max-width: 777px;
+  margin-bottom: 20px; }

@@ -1,10 +1,41 @@
-main.ini
-vendor
-composer.lock
-cache/view/*
-node_modules/*
-node_modules/
-log/*.log
-/.buildpath
-/.project
-/npm-debug.log
+# CakePHP specific files #
+##########################
+/config/app.php
+/config/.env
+/logs/*
+/tmp/*
+/vendor/*
+node_modules
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# Tool specific files #
+#######################
+# vim
+*~
+*.swp
+*.swo
+# sublime text & textmate
+*.sublime-*
+*.stTheme.cache
+*.tmlanguage.cache
+*.tmPreferences.cache
+# Eclipse
+.settings/*
+# JetBrains, aka PHPStorm, IntelliJ IDEA
+.idea/*
+# NetBeans
+nbproject/*
+# Visual Studio Code
+.vscode
+# Sass preprocessor
+.sass-cache/
