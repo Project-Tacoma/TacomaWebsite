@@ -162,3 +162,30 @@ ul#main_post_list {
   margin-top: 20px;
   max-width: 777px;
   margin-bottom: 20px; }
+
+.title-header-wrapper {
+  margin-top: 18px; }
+  .title-header-wrapper .title-thread-header {
+    margin-bottom: 4px; }
+  .title-header-wrapper .title-thread {
+    font-size: 14px;
+    display: block;
+    font-weight: 600;
+    line-height: 1.3em;
+    margin-top: 2px;
+    width: 100%;
+    word-wrap: break-word; }
+  .title-header-wrapper .thread-information {
+    margin-top: 3px;
+    font-size: 0.9em; }
+    .title-header-wrapper .thread-information .times-created {
+      float: left;
+      word-spacing: 1px;
+      font-weight: 300; }
+    .title-header-wrapper .thread-information .type-category {
+      position: relative;
+      float: left; }
+      .title-header-wrapper .thread-information .type-category .flags {
+        position: relative;
+        float: left;
+        margin: -9px -8px 0px 22px; }
