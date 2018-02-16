@@ -24,7 +24,6 @@
         <?= $this->Form->end() ?>
       </div>
 
-
     </div>
     <ul id="main_post_list" class="list-post">
       <?php foreach($posts as $post): ?>
@@ -38,7 +37,7 @@
           <h2 class="title"><?=  $this->Html->link($post->title, '/forums/post/'.$post->slug) ?></h2>
         </div>
         <div class="post-information">
-          <span class="times-created">Updated on January 7, 2016 in</span>
+          <span class="times-created">Created <?=  $this->Time->timeAgoInWords($post->created,['format' => 'MMM d, YYY', 'end' => '+1 year']); ?> in</span>
           <span class="type-category">
             <a href="#">
               <span class="flags color-31"></span> <?= $post->topic->name ?>

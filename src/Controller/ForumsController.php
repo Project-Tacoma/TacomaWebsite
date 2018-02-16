@@ -16,8 +16,36 @@ use Cake\ORM\TableRegistry;
 class ForumsController extends AppController
 {
 
+  public function initialize()
+  {
+    parent::initialize();
+
+    $this->_permissions = [
+      '*' => ['index'],
+      'Admin' => ['viewPostByTopic', 'addPost'],
+    ];
+
+    $permissions = $this->_permissions['*'];
+
+    if(!empty($this->Auth->user())) {
+      foreach ($this->Auth->user('roles') as $role) {
+        $permissions = $this->_permissions['*'];
+        if(!empty($this->_permissions[$role['name']]) &&
+        isset($this->_permissions[$role['name']]))
+        {
+          $permissions = array_merge($permissions, $this->_permissions[$role['name']]);
+        }
+      }
+    }
+
+    $this->Auth->allow($permissions);
+  }
+
   public function index(){
-    $posts = TableRegistry::get('Posts')->find('all')->contain(['Users', 'Topics']);
+    $posts = TableRegistry::get('Posts')->find('all')
+                            ->where(['post_id IS ' => null])
+                            ->order(['posts.created' => 'DESC'])
+                            ->contain(['Users', 'Topics']);
     $userCount = TableRegistry::get('Users')->find('all')->count();
     $replies = TableRegistry::get('Posts')->find('all')->where(['post_id IS NOT' => null])->count();
     $this->set('posts', $posts);
@@ -28,8 +56,10 @@ class ForumsController extends AppController
   public function viewPost($slug)
   {
     $postTable = TableRegistry::get('Posts');
-    $post = $postTable->findBySlug($slug)->firstOrFail();
+    $post = $postTable->findBySlug($slug)->contain(['Users'])->firstOrFail();
+    $replies = $postTable->find('all')->where(['post_id' => $post->id])->contain(['Users']);
     $this->set('post', $post);
+    $this->set('replies', $replies);
   }
 
   /**
@@ -79,8 +109,26 @@ class ForumsController extends AppController
           'post_id IS ' => null
           ]
       ]
-    );
+    )->contain(['Users']);
     $this->set('posts', $posts);
     $this->set('topic', $topic);
+  }
+
+  public function replyPost()
+  {
+    $postTable = TableRegistry::get('Posts');
+    $post = $postTable->newEntity();
+    if($this->request->is('post')) {
+      $post = $postTable->patchEntity($post, $this->request->getData());
+      $post->enabled = true;//TODO Change this here
+      $post->user_id = $this->Auth->user('id');
+      $savedPost = $postTable->save($post);
+      if($savedPost) {
+        $parentPost = $postTable->findById($savedPost->post_id)->firstOrFail();
+        $this->Flash->success(__('Deine Antwort wurde gespeichert'));
+        return $this->redirect('/forums/post/'.$parentPost->slug);
+      }
+      $this->Flash->error(__('Oops, wir konnten das Topic nicht erstellen'));
+    }
   }
 }

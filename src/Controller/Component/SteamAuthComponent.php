@@ -22,7 +22,7 @@ class SteamAuthComponent extends Component {
    *
    * @return User|null if the connection was success full
    */
-  public function connect($mode = self::CREATION)
+  public function connect($mode = self::RELATION)
   {
     $apiKey = Configure::read('Steam.api_key');
     $url = Configure::read('Steam.url');
@@ -55,12 +55,9 @@ class SteamAuthComponent extends Component {
 
         $user = $userTable->newEntity();
 
-        if($mode == self::CREATION || $mode == self::RELATION) {
-          $user->username = $newPlayer->personaname;
-          $user->password = ' ';
+        if($mode == self::RELATION) {
           $user->steamid = $newPlayer->steamid;
           $user->steamavatar = $newPlayer->avatarfull;
-          $user->isValid = 1;
           if($userTable->save($user)) {
             $this->Auth->setUser($user);
             $this->Flash->success('Connection done!');

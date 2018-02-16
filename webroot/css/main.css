@@ -182,13 +182,65 @@ ul#main_post_list {
       float: left;
       word-spacing: 1px;
       font-weight: 300; }
-    .title-header-wrapper .thread-information .type-category {
+    .title-header-wrapper .thread-information .flags {
       position: relative;
-      float: left; }
-      .title-header-wrapper .thread-information .type-category .flags {
-        position: relative;
-        float: left;
-        margin: -9px -8px 0px 22px; }
+      float: left;
+      margin: -9px -8px 0px 22px; }
+  .title-header-wrapper .item-thread {
+    border-top: 1px solid #e6e6e6;
+    padding-top: 15px;
+    margin-top: 25px; }
+    .title-header-wrapper .item-thread .f-floatright {
+      margin-left: 90px; }
+  .title-header-wrapper .topic-thread {
+    position: relative; }
+  .title-header-wrapper .items-thread .name {
+    font-size: 1.05em;
+    font-weight: 600;
+    line-height: 1.2em;
+    margin-top: 7px;
+    margin-bottom: 6px; }
+    .title-header-wrapper .items-thread .name .post-author {
+      font-size: 18px;
+      font-weight: 600; }
+    .title-header-wrapper .items-thread .name .comment, .title-header-wrapper .items-thread .name .like {
+      font-weight: normal;
+      font-size: 0.85em; }
+      .title-header-wrapper .items-thread .name .comment .icon, .title-header-wrapper .items-thread .name .like .icon {
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        font-size: 1.0em !important;
+        margin: 0px 10px;
+        margin-right: 5px; }
+    .title-header-wrapper .items-thread .name .date {
+      font-weight: normal;
+      font-size: 0.85em;
+      margin-left: 5px; }
+  .title-header-wrapper .items-thread .content {
+    word-wrap: break-word; }
+
+.who-in-discuss {
+  margin-top: 0px !important; }
+
+.thread-discuss-right {
+  margin-top: 18px;
+  float: left;
+  margin-bottom: 15px; }
+  .thread-discuss-right ul.user-discuss {
+    padding-left: 1em; }
+    .thread-discuss-right ul.user-discuss li {
+      float: left;
+      margin-right: 5px;
+      margin-bottom: 5px;
+      display: block; }
+      .thread-discuss-right ul.user-discuss li a, .thread-discuss-right ul.user-discuss li .img-circle {
+        width: 30px !important;
+        height: 30px !important;
+        margin-bottom: 5px;
+        display: inline-block; }
+        .thread-discuss-right ul.user-discuss li a .img-circle, .thread-discuss-right ul.user-discuss li .img-circle .img-circle {
+          border-radius: 50%; }
 
 /* GLOBAL STYLES
 -------------------------------------------------- */
@@ -367,6 +419,16 @@ a {
     display: block;
     width: auto;
     padding-right: 0px; }
+
+.single-avatar {
+  width: 64px; }
+
+.f-floatleft {
+  float: left;
+  width: 80px;
+  text-align: center;
+  margin-right: 18px;
+  position: absolute; }
 
 /* RESPONSIVE CSS
 -------------------------------------------------- */

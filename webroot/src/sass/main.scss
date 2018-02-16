@@ -88,7 +88,7 @@ a {
 
 /* Featurettes
 ------------------------- */
- 
+
 .featurette-divider {
   margin: 5rem 0; /* Space out the Bootstrap <hr> more */
 }
@@ -228,6 +228,18 @@ a {
       padding-right: 0px;
     }
   }
+}
+
+.single-avatar {
+  width: 64px;
+}
+
+.f-floatleft {
+  float: left;
+  width: 80px;
+  text-align: center;
+  margin-right: 18px;
+  position: absolute;
 }
 
 /* RESPONSIVE CSS
